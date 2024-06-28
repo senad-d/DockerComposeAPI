@@ -14,7 +14,6 @@ def get_ip_address(ifname):
 ip_address = get_ip_address('eth0')
 
 build = f"{ip_address}:8000"
-#build = "0.0.0.0:8000"
 workers = multiprocessing.cpu_count() * 2 + 1
 
 timeout = 30
