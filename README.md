@@ -1,6 +1,6 @@
 Certainly! Here’s an improved version of the README file, incorporating best practices and enhanced clarity:
 
-# Docker compose API
+# Docker-Compose API
 
 This repository contains a Dockerized Flask application running behind Gunicorn and Nginx.
 
