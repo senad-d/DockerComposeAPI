@@ -6,6 +6,7 @@ import shlex
 app = Flask(__name__)
 
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # Change this to a strong secret key
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = False 
 jwt = JWTManager(app)
 
 @app.route('/login', methods=['POST'])

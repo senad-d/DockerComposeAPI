@@ -6,7 +6,7 @@ services:
       - "8080:80"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./test:/app/source/ #Add your docker-compse.yml cource directory here
+      - ./test:/app/source/ #Add your docker-compose.yml source directory here.
     deploy:
       resources:
         limits:
