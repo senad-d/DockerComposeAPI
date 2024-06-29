@@ -10,7 +10,21 @@ docker compose build
 docker compose up -d --force-recreate --remove-orphans
 ```
 
+## Access login credentials
+```shell
+curl -X POST http://localhost:8080/login \
+     -H "Content-Type: application/json" \
+     -d '{"username": "admin", "password": "password"}'
+
+TOKEN=$(curl -X POST http://localhost:8080/login \
+     -H "Content-Type: application/json" \
+     -d '{"username": "admin", "password": "password"}' | jq -r .access_token)
+```
+
 ## Test the API
 ```shell
-curl -X POST -H "Content-Type: application/json" -d '{"command":"docker-compose -f source/docker-compose.yml up -d"}' http://localhost:8080/runcmd
+curl -X POST http://localhost:8080/runcmd \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer $TOKEN" \
+     -d '{"command":"docker-compose -f source/docker-compose.yml up -d"}'
 ```
