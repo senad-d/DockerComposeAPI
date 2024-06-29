@@ -8,6 +8,8 @@ This repository contains a Dockerized Flask application running behind Gunicorn 
 
 This application is designed to interact with `docker-compose` commands using RESTful APIs. It allows users to run `docker-compose` commands, view the output, and execute multiple commands in sequence.
 
+![diagram](doc/api_demo.gif)
+
 ## Use case
 
 ### Scenario:
