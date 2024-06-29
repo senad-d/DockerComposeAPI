@@ -1,7 +1,7 @@
 services:
   api:
     build: .
-    container_name: api
+    container_name: docker_compose_api
     ports:
       - "8080:80"
     volumes:

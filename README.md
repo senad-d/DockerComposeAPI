@@ -1,6 +1,4 @@
-Certainly! Here’s an improved version of the README file, incorporating best practices and enhanced clarity:
-
-# Docker-Compose API
+# DockerComposeAPI
 
 This repository contains a Dockerized Flask application running behind Gunicorn and Nginx.
 
@@ -13,7 +11,6 @@ This application is designed to interact with `docker-compose` commands using RE
 ## Use case
 
 ### Scenario:
-
 You have a machine running services in Docker containers that need to be up and running all the time. Occasionally, you require additional services that are not needed constantly, such as a VPN service. With the Docker-Compose API, you can manage these additional services remotely through a simple interface.
 
 ### Example:
@@ -44,7 +41,7 @@ To run the application, follow these steps:
 
 1. **Build the Docker image:**
    ```bash
-   docker-compose build
+   docker compose build
    ```
 2. **Set your docker-compose.yml file location:**
    Open the docker-compose.yml file and modify the volumes. By default, the API will start the Hello World docker container for testing.
@@ -57,7 +54,7 @@ To run the application, follow these steps:
    ```
 3. **Run the Docker container in detached mode:**
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 Once the container is running, you can access the API at `http://localhost:8080`.
@@ -93,7 +90,7 @@ The application uses JSON Web Tokens (JWT) for authentication and authorization.
 - **Configuration**: Ensure your `docker-compose.yml` and environment variables are properly configured before starting the application.
 - **Logging**: Logs can be accessed through Docker logs for debugging and monitoring.
   ```bash
-  docker-compose logs
+  docker logs docker_compose_api
   ```
 
 For more details, please refer to the official [Docker Compose documentation](https://docs.docker.com/compose/).
