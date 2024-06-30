@@ -45,19 +45,21 @@ To run the application, follow these steps:
    ```bash
    docker compose build
    ```
-2. **Set your docker-compose.yml file location:**
-   Open the docker-compose.yml file and modify the volumes and variables. 
+2. **Configure docker-compose.yaml:**
+   Open the docker-compose.yaml file and modify the volumes. 
    By default, the API will start the Hello World docker container for testing.
    ```bash
    ...
-   environment: 
-     - MY_JWT_SECRET_KEY=your_default_jwt_secret_key # Create JWT secret key woth SSL command (openssl rand -hex 32)
-     - API_USERNAME=admin
-     - API_PASSWORD=pasword
    volumes:
      - /var/run/docker.sock:/var/run/docker.sock:ro
      - ./test:/app/source/ #Add your docker-compose.yml source directory here.
    ...
+   ```
+   Create .env file for storing variables.
+   ```bash
+   MY_JWT_SECRET_KEY=your_default_jwt_secret_key # Create JWT secret key woth SSL command (openssl rand -hex 32)
+   API_USERNAME=admin
+   API_PASSWORD=password
    ```
 3. **Run the Docker container in detached mode:**
    ```bash

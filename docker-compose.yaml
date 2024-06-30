@@ -4,10 +4,8 @@ services:
     container_name: docker_compose_api
     ports:
       - "8080:80"
-    environment: 
-      - MY_JWT_SECRET_KEY=9da3d6a2b3e7779b3050cd54a50b4d1295d580c3a6134aa517f5a837915c0778
-      - API_USERNAME=test
-      - API_PASSWORD=password1!
+    env_file:
+      - .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./test:/app/source/ #Add your docker-compose.yml source directory here.
