@@ -10,7 +10,7 @@ ENV API_PASSWORD=password
 
 WORKDIR /app
 
-COPY ./requirements.txt ./dependencies.txt ./conf/nginx.conf /app
+COPY ./conf/requirements.txt ./conf/dependencies.txt ./conf/nginx.conf /app
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
