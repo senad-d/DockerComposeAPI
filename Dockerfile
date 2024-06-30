@@ -10,17 +10,17 @@ ENV API_PASSWORD=password
 
 WORKDIR /app
 
-COPY ./conf/requirements.txt ./conf/dependencies.txt ./conf/nginx.conf /app
+COPY ./conf/dependencies.txt ./conf/nginx.conf /app
 
 RUN --mount=type=cache,target=/root/.cache/pip \
-    --mount=type=bind,source=requirements.txt,target=requirements.txt \
+    --mount=type=bind,source=conf/requirements.txt,target=requirements.txt \
     python3 -m pip install -r /app/requirements.txt
 
 RUN apt-get update && \
     xargs -a dependencies.txt apt-get install -y --no-install-recommends && \
     apt-get clean 
 
-RUN rm /app/requirements.txt /app/dependencies.txt && \
+RUN rm /app/dependencies.txt && \
     curl -SL https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose &&\
     chmod +x /usr/local/bin/docker-compose
     
