@@ -16,6 +16,8 @@ You have a machine running services in Docker containers that need to be up and 
 ### Example:
 Imagine you have a Grafana dashboard monitoring your system's performance and network traffic. You need to enable or disable a VPN service on-demand to secure your network traffic during specific operations or troubleshooting sessions.
 
+![button](doc/grafana_buttons.png)
+
 ### Implementation:
 1. **Setup the Docker-Compose API**:
    - Ensure the Docker-Compose API is running on your remote machine.
