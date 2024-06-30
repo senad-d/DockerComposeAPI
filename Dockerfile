@@ -4,6 +4,10 @@ FROM --platform=linux/amd64 python:${PYTHON_VERSION}-slim as base
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
+ENV MY_JWT_SECRET_KEY=your_jwt_secret_key
+ENV API_USERNAME=admin
+ENV API_PASSWORD=password
+
 WORKDIR /app
 
 COPY ./requirements.txt ./dependencies.txt ./conf/nginx.conf /app

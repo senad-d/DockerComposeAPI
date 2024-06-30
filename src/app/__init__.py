@@ -2,10 +2,12 @@ from flask import Flask, request, jsonify
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 import subprocess
 import shlex
+import os
 
 app = Flask(__name__)
 
-app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # Change this to a strong secret key
+# Retrieve secret key and credentials from environment variables
+app.config['JWT_SECRET_KEY'] = os.getenv('MY_JWT_SECRET_KEY', 'your_default_jwt_secret_key')
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = False 
 jwt = JWTManager(app)
 
@@ -17,7 +19,11 @@ def login():
     username = request.json.get('username', None)
     password = request.json.get('password', None)
 
-    if username != 'admin' or password != 'password':
+    # Fetch credentials from environment variables
+    env_username = os.getenv('API_USERNAME', 'admin')
+    env_password = os.getenv('API_PASSWORD', 'password')
+
+    if username != env_username or password != env_password:
         return jsonify({"msg": "Bad username or password"}), 401
 
     access_token = create_access_token(identity=username)
