@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
-service nginx start
+nginx
 exec gunicorn -c ./gunicorn.conf.py app:app

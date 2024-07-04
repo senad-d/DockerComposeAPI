@@ -1,4 +1,5 @@
-docker.io
+docker
 curl
 nginx
+openrc
 jq
