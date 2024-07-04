@@ -66,7 +66,9 @@ To run the application, follow these steps:
    docker compose up -d
    ```
 
-Once the container is running, you can access the API at `http://localhost:8080`.
+   Once the container is running, you can access the API at `http://localhost:8080`.
+   
+   You can also dowload the image from Docker Hub [repository](https://hub.docker.com/r/senaddizdarevic/docker-compose-api).
 
 ### API Endpoints
 
@@ -103,3 +105,4 @@ The application uses JSON Web Tokens (JWT) for authentication and authorization.
   ```
 
 For more details, please refer to the official [Docker Compose documentation](https://docs.docker.com/compose/).
+
