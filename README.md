@@ -1,4 +1,4 @@
-# DockerComposeAPI
+# <img src="https://raw.githubusercontent.com/github/explore/92ad94b82139838b94e2fa7ffc8b461315d6a452/topics/docker-compose/docker-compose.png" alt="docker-compose-api" width="50" height="50"> DockerComposeAPI
 
 This repository contains a Dockerized Flask application running behind Gunicorn and Nginx.
 
