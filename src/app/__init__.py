@@ -7,14 +7,14 @@ import logging
 
 app = Flask(__name__)
 
-log_dir = '/app'
+log_dir = '/app/logs'
 log_file = os.path.join(log_dir, 'api.log')
 
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
 
 logging.basicConfig(filename=log_file, level=logging.DEBUG,
-                    format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+                    format='%(asctime)s %(name)s : %(message)s')
 logger = logging.getLogger(__name__)
 
 app.config['JWT_SECRET_KEY'] = os.getenv('MY_JWT_SECRET_KEY', 'your_default_jwt_secret_key')
