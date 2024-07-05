@@ -16,7 +16,7 @@ ENV API_PASSWORD=password
 
 WORKDIR /app
 
-COPY ./conf/dependencies.txt ./conf/nginx.conf /app
+COPY ./conf/nginx.conf /app
 COPY --from=downloader /usr/local/bin/docker-compose /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
@@ -24,11 +24,11 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=conf/requirements.txt,target=requirements.txt \
     python3 -m pip install -r /app/requirements.txt
 
-RUN apk update && \
+RUN --mount=type=cache,target=/root/.cache/apk \
+    --mount=type=bind,source=conf/dependencies.txt,target=dependencies.txt \
+    apk update && \
     xargs -a dependencies.txt apk add --no-cache && \
-    rm -rf /var/cache/apk/*
-
-RUN rm /app/dependencies.txt
+    rm -rf /var/cache/apk/* /root/.cache/apk/*
 
 COPY ./src /app
 
