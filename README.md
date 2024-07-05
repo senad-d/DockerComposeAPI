@@ -62,6 +62,7 @@ To run the application, follow these steps:
    MY_JWT_SECRET_KEY=your_default_jwt_secret_key # Create JWT secret key woth SSL command (openssl rand -hex 32)
    API_USERNAME=admin
    API_PASSWORD=password
+   LOG_LEVEL=DEBUG # or INFO
    ```
 3. **Run the Docker container in detached mode:**
    ```bash
@@ -103,7 +104,11 @@ The application uses JSON Web Tokens (JWT) for authentication and authorization.
 - **Configuration**: Ensure your `docker-compose.yml` and environment variables are properly configured before starting the application.
 - **Logging**: Logs can be accessed through Docker logs for debugging and monitoring.
   ```bash
+  # Gunicorn logs
   docker logs docker_compose_api
+  
+  #Flask logs
+  docker exec -it docker_compose_api cat /app/api.log
   ```
 
 For more details, please refer to the official [Docker Compose documentation](https://docs.docker.com/compose/).

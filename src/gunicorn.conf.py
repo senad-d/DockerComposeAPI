@@ -16,6 +16,6 @@ ip_address = get_ip_address('eth0')
 build = f"{ip_address}:8000"
 workers = multiprocessing.cpu_count() * 2 + 1
 
-timeout = 30
+timeout = 30 #Adjust the time according to the size of your Docker image.
 preload = True
-loglevel = "debug"
+loglevel = "info"
