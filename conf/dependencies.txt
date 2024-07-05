@@ -1,5 +1,3 @@
 docker
-curl
 nginx
 openrc
-jq
